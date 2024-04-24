@@ -5,20 +5,20 @@ Variables
 */
 
 :root {
-  /* dark shades of primary color*/
-  --clr-primary-1: hsl(1, 83%, 20%);
-  --clr-primary-2: hsl(1, 76%, 26%);
-  --clr-primary-3: hsl(1, 62%, 36%);
-  --clr-primary-4: hsl(1, 65%, 51%);
-  /* primary/main color */
-  --clr-primary-5: hsl(1, 56%, 40%);
-
+  --clr-primary-1: hsl(217, 100%, 22%); 
+  --clr-primary-2: hsl(217, 92%, 29%);  
+  --clr-primary-3: hsl(217, 85%, 35%);   
+  --clr-primary-4: hsl(217, 78%, 45%);   
+  
+  /* primary/main color - now lighter similar to Bootstrap primary */
+  --clr-primary-5: hsl(217, 91%, 58%);
+  
   /* lighter shades of primary color */
-  --clr-primary-6: hsl(1, 65%, 61%);
-  --clr-primary-7: hsl(1, 52%, 66%);
-  --clr-primary-8: hsl(1, 54%, 76%);
-  --clr-primary-9: hsl(2, 42%, 87%);
-  --clr-primary-10: hsl(0, 54%, 92%);
+  --clr-primary-6: hsl(217, 80%, 63%);
+  --clr-primary-7: hsl(217, 70%, 69%);
+  --clr-primary-8: hsl(217, 60%, 76%);
+  --clr-primary-9: hsl(218, 50%, 87%);
+  --clr-primary-10: hsl(217, 40%, 92%);
   /* darkest grey - used for headings */
   --clr-grey-1: hsl(209, 61%, 16%);
   --clr-grey-2: hsl(211, 39%, 23%);

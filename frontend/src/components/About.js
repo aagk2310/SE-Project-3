@@ -13,7 +13,7 @@ const About = () => {
             <div className="underline"></div>
           </div>
           <p>
-            <strong>KalaKriti</strong> is an E-commerce platform that seeks to
+            <strong>Bharat Kalakriti Kendra</strong> is an E-commerce platform that seeks to
             improve the online market for small-town and rural handicrafts
             companies. By offering a shared platform for the production,
             marketing, and sale of high-quality handicrafts and products, this

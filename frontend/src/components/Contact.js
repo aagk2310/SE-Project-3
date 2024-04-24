@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { contactItems } from '../constants/contactConstant';
-import { FaLongArrowAltRight } from 'react-icons/fa';
-import { useForm, ValidationError } from '@formspree/react';
+
+
 
 const Contact = () => {
   return (
@@ -15,8 +15,7 @@ const Contact = () => {
       <SectionCenter className="section-center">
         <ContactInfo>
           <p>
-            If you have any questions or just want to get in touch, ping us via
-            the form. We look forward to hear from you!
+            If you have any questions or just want to get in touch,  We look forward to hear from you!
           </p>
           {contactItems.map((item) => (
             <div key={item.id} className="contact-item">
@@ -27,64 +26,12 @@ const Contact = () => {
           ))}
         </ContactInfo>
 
-        <ContactForm />
+        
       </SectionCenter>
     </Container>
   );
 };
 
-const ContactForm = () => {
-  const [state, handleSubmit] = useForm('xyyapqwr');
-
-  return (
-    <FormContainer>
-      <form className="form" onSubmit={handleSubmit}>
-        <h4 className="mb-4">
-          {state.succeeded
-            ? 'Your message has been sent!'
-            : 'send me a message'}
-        </h4>
-        <article>
-          <div className="contact-from-control">
-            <label htmlFor="Name">name</label>
-            <input type="text" name="Name" required />
-          </div>
-          <div className="contact-from-control">
-            <label htmlFor="Email">email</label>
-            <input type="email" name="Email" required />
-          </div>
-        </article>
-
-        <div className="contact-from-control">
-          <label htmlFor="Subject">subject</label>
-          <input type="text" name="Subject" required />
-        </div>
-
-        <div className="contact-from-control">
-          <label htmlFor="Message">message</label>
-          <textarea
-            name="Message"
-            placeholder="Your message here..."
-          ></textarea>
-        </div>
-
-        <ValidationError
-          prefix="Message"
-          field="message"
-          errors={state.errors}
-        />
-
-        <button
-          type="submit"
-          className="btn btn-block btn-danger"
-          disabled={state.submitting}
-        >
-          send message <FaLongArrowAltRight />
-        </button>
-      </form>
-    </FormContainer>
-  );
-};
 
 const Container = styled.section`
   .title {
@@ -145,67 +92,6 @@ const ContactInfo = styled.article`
   }
 `;
 
-const FormContainer = styled.article`
-  .form {
-    background-color: #f5f5f5;
-    padding: 3rem 2rem;
-    max-width: 592px;
-    margin: 0 auto;
-    border-radius: var(--radius);
 
-    @media (max-width: 492px) {
-      padding: 1.5rem;
-    }
-  }
-
-  h4 {
-    color: var(--clr-primary-2);
-    text-align: center;
-  }
-
-  .contact-from-control {
-    margin: 1rem 0;
-
-    label {
-      text-transform: capitalize;
-      color: var(--clr-primary-2);
-    }
-
-    input,
-    textarea {
-      margin-top: 0.25rem;
-      width: 100%;
-      padding: 0.75rem;
-      border: 1px solid var(--clr-grey);
-      outline: 0;
-      border-radius: var(--radius);
-    }
-
-    textarea {
-      height: 100px;
-      resize: vertical;
-      font-family: var(--bodyFont);
-    }
-  }
-
-  article {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-
-    .contact-from-control {
-      margin: 0;
-    }
-  }
-
-  .btn {
-    font-family: 'Poppins', sans-serif;
-    font-size: 0.9rem;
-
-    &:hover {
-      background-color: var(--clr-red-dark);
-    }
-  }
-`;
 
 export default Contact;

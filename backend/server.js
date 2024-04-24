@@ -10,10 +10,14 @@ import productRoutes from "./routes/productRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
 import orderRoutes from "./routes/orderRoutes.js";
 import uploadRoutes from "./routes/uploadRoutes.js";
+import { kafkaConnect, kafkaDisconnect } from "./services/kafkaService.js";
 
 dotenv.config();
 
-connectDB();
+// Connect to the database
+connectDB()
+  .then(() => console.log("MongoDB connected."))
+  .catch((err) => console.error("MongoDB connection error:", err));
 
 const app = express();
 
@@ -27,10 +31,6 @@ app.use("/api/products", productRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/orders", orderRoutes);
 app.use("/api/upload", uploadRoutes);
-
-app.get("/api/config/paypal", (req, res) =>
-  res.send(process.env.PAYPAL_CLIENT_ID)
-);
 
 const __dirname = path.resolve();
 app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
@@ -52,9 +52,33 @@ app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
 
-app.listen(
-  PORT,
+const server = app.listen(PORT, async () => {
   console.log(
     `Server running in ${process.env.NODE_ENV} mode on port ${PORT}`.yellow.bold
-  )
-);
+  );
+  try {
+    await kafkaConnect();
+    console.log("Kafka connected".green);
+  } catch (error) {
+    console.error("Kafka connection failed:", error);
+  }
+});
+
+// Graceful shutdown
+process.on("SIGINT", async () => {
+  await kafkaDisconnect();
+  console.log("Kafka disconnected on exit".blue);
+  server.close(() => {
+    console.log("Process terminated".red);
+    process.exit(0);
+  });
+});
+
+process.on("SIGTERM", async () => {
+  await kafkaDisconnect();
+  console.log("Kafka disconnected on exit".blue);
+  server.close(() => {
+    console.log("Process terminated".red);
+    process.exit(0);
+  });
+});

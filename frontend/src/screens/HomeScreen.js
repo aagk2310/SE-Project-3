@@ -9,7 +9,6 @@ import Paginate from '../components/Paginate';
 import ProductCarousel from '../components/ProductCarousel';
 import Meta from '../components/Meta';
 import { listProducts } from '../actions/productActions';
-import Services from '../components/Services';
 import About from '../components/About';
 import Contact from '../components/Contact';
 
@@ -82,7 +81,7 @@ const HomeScreen = ({ match }) => {
         </Container>
       </div>
 
-      <Services />
+
       <About />
       <Contact />
     </>

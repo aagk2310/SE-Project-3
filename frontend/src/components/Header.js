@@ -5,7 +5,7 @@ import { LinkContainer } from 'react-router-bootstrap';
 import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
 import SearchBox from './SearchBox';
 import { logout } from '../actions/userActions';
-import logo from '../assets/images/logo.png';
+import logo from '../assets/images/logo.jpg';
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -24,13 +24,13 @@ const Header = () => {
           <LinkContainer to="/">
             <Navbar.Brand>
               <img
-                alt="Kalakriti"
+                alt="Bharat Kalakriti Kendra"
                 src={logo}
                 width="64"
                 height="64"
                 className="d-inline-block align-middle"
               />
-              &nbsp;&nbsp; KalaKriti
+              &nbsp;&nbsp; Bharat Kalakriti Kendra
             </Navbar.Brand>
           </LinkContainer>
           <Navbar.Toggle
@@ -41,11 +41,11 @@ const Header = () => {
           <Navbar.Collapse className="flex-gap" id="basic-navbar-nav">
             <Route render={({ history }) => <SearchBox history={history} />} />
             <Nav className="ml-auto">
-              <LinkContainer to="/blog">
+              {/* <LinkContainer to="/blog">
                 <Nav.Link>
                   <i className="fas fa-blog"></i> Blog
                 </Nav.Link>
-              </LinkContainer>
+              </LinkContainer> */}
 
               <LinkContainer to="/cart">
                 <Nav.Link>

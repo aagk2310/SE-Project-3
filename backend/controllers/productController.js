@@ -1,6 +1,7 @@
 import asyncHandler from 'express-async-handler'
 import mongoose from 'mongoose'
 import Product from '../models/productModel.js'
+import { sendEvent } from '../services/kafkaService.js';
 
 // @desc    Fetch all products
 // @route   GET /api/products
@@ -110,6 +111,22 @@ const createProduct = asyncHandler(async (req, res) => {
   })
 
   const createdProduct = await product.save()
+
+  
+  // Send an event to Kafka after product creation
+  await sendEvent('product-created', {
+    id: createdProduct._id.toString(),  // Convert MongoDB ObjectId to string
+    name: createdProduct.name,
+    price: createdProduct.price,
+    user: createdProduct.user.toString(),  // Convert MongoDB ObjectId to string
+    image: createdProduct.image,
+    brand: createdProduct.brand,
+    category: createdProduct.category,
+    countInStock: createdProduct.countInStock,
+    numReviews: createdProduct.numReviews,
+    description: createdProduct.description
+  });
+  
   res.status(201).json(createdProduct)
 })
 
