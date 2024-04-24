@@ -1,6 +1,6 @@
-import React from 'react';
-import styled from 'styled-components';
-import aboutImg from '../assets/images/about-img.jpg';
+import React from "react";
+import styled from "styled-components";
+import aboutImg from "../assets/images/img-1.jpeg";
 
 const About = () => {
   return (
@@ -13,24 +13,19 @@ const About = () => {
             <div className="underline"></div>
           </div>
           <p>
-            <strong>Bharat Kalakriti Kendra</strong> is an E-commerce platform that seeks to
-            improve the online market for small-town and rural handicrafts
-            companies. By offering a shared platform for the production,
-            marketing, and sale of high-quality handicrafts and products, this
-            application seeks to promote the Indian handicraft industry
-            globally.
-            <br />
-            India's artisan legacy is both real and intangible, and when
-            combined with its regional distinctiveness, it gives the nation a
-            competitive worldwide advantage. With the correct assistance and a
-            conducive business environment, the Indian craft market has the
-            potential to grow to be a billion-dollar industry. Access to new
-            markets will be increased by creating a systematic strategy that
-            fosters the intrinsic worth of craft skills and creates
-            opportunities for product design and manufacturing. In addition, as
-            the industry develops and receives more traction, leveraging
-            e-commerce for online visibility and operational efficiencies will
-            show to be a crucial success factor.
+            <strong>Bharat Kalakriti Kendra</strong> is an online platform that
+            connects small-town and rural artisans to the broader e-commerce
+            market. It helps them create, market, and sell their high-quality
+            handicrafts and handmade products, aiming to promote India's
+            traditional crafts globally. India has a rich heritage of artisans,
+            with unique regional styles, which gives it an edge in the
+            international market. With proper support and a business-friendly
+            environment, the Indian handicraft market could grow into a
+            multi-billion-dollar industry. To make this happen, a plan is needed
+            that values traditional craft skills while encouraging new designs
+            and manufacturing techniques. As the industry grows, using
+            e-commerce to reach more customers and streamline operations will be
+            key to success.
           </p>
         </article>
       </div>
